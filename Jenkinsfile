@@ -1,18 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Git Fectch Repo') {
-      parallel {
-        stage('Git Fectch Repo') {
-          steps {
-            git(url: 'https://github.com/CELLINKAB/CellCyteX-Backend-API.git', changelog: true, credentialsId: 'GitHubToken', poll: true)
-          }
-        }
-        stage('Slack Notification') {
-          steps {
-            slackSend(channel: 'cloud', token: 'TXPXiLbn6oz4WmL6fWAF3EEt', username: 'jenkins', teamDomain: 'cellink-sw', message: 'Git Repo Fetch Successfull', tokenCredentialId: 'SlackToken', color: 'good', sendAsText: true)
-          }
-        }
+    stage('Slack Notification') {
+      steps {
+        slackSend(channel: 'cloud', token: 'TXPXiLbn6oz4WmL6fWAF3EEt', username: 'jenkins', teamDomain: 'cellink-sw', message: 'CellCyteX-Backend-API :Pipeline Starting', tokenCredentialId: 'SlackToken', color: 'good', sendAsText: true)
       }
     }
     stage('Build and Execute Unit Tests') {
