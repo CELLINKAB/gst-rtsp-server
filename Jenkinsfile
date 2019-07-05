@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Slack Notification') {
       steps {
-        slackSend(channel: 'cloud', token: 'TXPXiLbn6oz4WmL6fWAF3EEt', username: 'jenkins', teamDomain: 'cellink-sw', message: 'CellCyteX-Backend-API :Pipeline Starting', tokenCredentialId: 'SlackToken', color: 'good', sendAsText: true)
+        slackSend(channel: 'deployment-noise', token: 'TXPXiLbn6oz4WmL6fWAF3EEt', username: 'jenkins', teamDomain: 'cellink-sw', message: 'CellCyteX-Backend-API :Pipeline Starting', tokenCredentialId: 'SlackToken', color: 'good', sendAsText: true)
       }
     }
     stage('Fetch Latest Code') {
@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Fetch Latest Code Complete') {
       steps {
-        slackSend(channel: 'cloud', token: 'TXPXiLbn6oz4WmL6fWAF3EEt', username: 'jenkins', teamDomain: 'cellink-sw', message: 'CellCyteX-Backend-API :Fetch from Git Repo Completed', tokenCredentialId: 'SlackToken', color: 'good', sendAsText: true)
+        slackSend(channel: 'deployment-noise', token: 'TXPXiLbn6oz4WmL6fWAF3EEt', username: 'jenkins', teamDomain: 'cellink-sw', message: 'CellCyteX-Backend-API :Fetch from Git Repo Completed', tokenCredentialId: 'SlackToken', color: 'good', sendAsText: true)
       }
     }
     stage('Build and Run Code Tests') {
